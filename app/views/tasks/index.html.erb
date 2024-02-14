@@ -1,0 +1,14 @@
+<!-- app/views/tasks/index.html.erb -->
+
+<h1>All Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, single_task_path(task) %>
+      <%= link_to 'Delete', delete_task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a New Task', new_task_path, class: 'btn btn-primary' %>
